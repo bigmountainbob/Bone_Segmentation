@@ -8,10 +8,8 @@ import glob
 path_slice = glob.glob(r'C:\Users\kfran\PycharmProjects\Vertebrae_Segmentation\Vert_Seg\Slices\*.tiff')
 path_mask = glob.glob(r'C:\Users\kfran\PycharmProjects\Vertebrae_Segmentation\Vert_Seg\Masks\*.tiff')
 
-print(len(path_slice))
 
 for i in range(len(path_slice)):
-    print(i)
     img1 = plt.imread(path_slice[i])
     mask = plt.imread(path_mask[i])
     ar_1 = np.array(img1)
@@ -32,6 +30,8 @@ for i in range(len(path_slice)):
     mask = np.zeros_like(markers)
     mask[markers == 1] = 1
 
-    plt.imshow(mask)
+    plt.imshow(mask, cmap='grey')
     plt.colorbar()
-    plt.show()
+    plt.savefig('Segmented_' + str(i) + '.png')
+    plt.clf()
+    # plt.show()
