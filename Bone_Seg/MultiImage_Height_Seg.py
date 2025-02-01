@@ -5,8 +5,8 @@ import numpy as np
 from scipy import ndimage as ndi
 import glob
 
-path_slice = glob.glob(r'C:\Users\kfran\PycharmProjects\Vertebrae_Segmentation\Vert_Seg\Slices\*.tiff')
-path_mask = glob.glob(r'C:\Users\kfran\PycharmProjects\Vertebrae_Segmentation\Vert_Seg\Masks\*.tiff')
+path_slice = glob.glob(r'C:\Users\kfran\PycharmProjects\Bone_Segmentation\Bone_Seg\Slices\*.tiff')
+path_mask = glob.glob(r'C:\Users\kfran\PycharmProjects\Bone_Segmentation\Bone_Seg\Masks\*.tiff')
 
 
 for i in range(len(path_slice)):
