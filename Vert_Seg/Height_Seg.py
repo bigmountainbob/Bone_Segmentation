@@ -21,6 +21,7 @@ markers[ar_1 < 33300] = 1 # Define dark threshold
 markers[ar_1 > 35590] = 2 # Define light threshold
 plt.imshow(markers)
 plt.colorbar()
+plt.savefig('Seg1.png')
 plt.show()
 
 
