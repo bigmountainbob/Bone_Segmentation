@@ -17,13 +17,14 @@ for i in range(len(path_slice)):
     ar_1 = np.array(img1)
     mask = mask/255
     ar_1 = mask*ar_1
+    # corfac = min(ar_1)
 
     ## Greyscale Image Thresholding
 
     # Create histogram of intensity 0 = black
     # fig1 = plt.hist(ar_1)
     # fig = plt.imshow(ar_1)
-    # .show()
+    # plt.show()
     # plt.clf
 
     markers = np.zeros_like(ar_1)
@@ -37,5 +38,5 @@ for i in range(len(path_slice)):
     plt.clf()
     # plt.show()
 
-    fig, ax = try_all_threshold(ar_1,figsize=(100,60),verbose=True)
+    fig, ax = try_all_threshold(ar_1,figsize=(15,10),verbose=True)
     plt.show()
