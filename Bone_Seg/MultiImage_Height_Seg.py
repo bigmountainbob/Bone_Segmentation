@@ -9,6 +9,12 @@ path_slice = glob.glob(r'C:\Users\kfran\PycharmProjects\Bone_Segmentation\Bone_S
 path_mask = glob.glob(r'C:\Users\kfran\PycharmProjects\Bone_Segmentation\Bone_Seg\Masks\*.tiff')
 
 
+def lowest_nonzero(matrix):
+    matrix = np.array(matrix)  # Convert to numpy array for easy processing
+    nonzero_elements = matrix[matrix > 0]  # Filter out nonzero elements
+    return np.min(nonzero_elements) if nonzero_elements.size > 0 else None  # Return min or None if empty
+
+
 for i in range(len(path_slice)):
     img1 = plt.imread(path_slice[i])
     mask = plt.imread(path_mask[i])
@@ -33,6 +39,7 @@ for i in range(len(path_slice)):
 
     plt.imshow(mask, cmap='grey')
     plt.colorbar()
-    plt.savefig('Segmented_' + str(i) + '.png')
+    plt.savefig('Sobel_' + str(i) + '.png')
     plt.clf()
     # plt.show()
+
