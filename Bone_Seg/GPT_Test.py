@@ -9,8 +9,11 @@ image = cv2.imread(r"C:\Users\kfran\PycharmProjects\Bone_Segmentation\Bone_Seg\I
 mask = np.zeros_like(image, dtype=np.uint8)
 cv2.circle(mask, (image.shape[1]//2, image.shape[0]//2), 500, 255, -1)  # White circle as mask
 
+kernel = np.ones((5,5), np.uint8)
+mask_dilated = cv2.dilate(mask, kernel, iterations=1)
+
 # Apply thresholding only to unmasked regions
-masked_image = cv2.bitwise_and(image, image, mask=mask)
+masked_image = cv2.bitwise_and(image, image, mask=mask_dilated)
 
 plt.imshow(masked_image)
 plt.show()
