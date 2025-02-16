@@ -58,10 +58,10 @@ for i in range(len(path_slice)):
 
     # Apply thresholds
     thresholded_images = {name: (masked_image > value) * 255 for name, value in threshold_methods.items()}
-    thresholded_images["Sauvola"] = (masked_image > threshold_methods["Sauvola"]) * 255
-    thresholded_images["Niblack"] = (masked_image > threshold_methods["Niblack"]) * 255
-    thresholded_images["Phansalkar"] = (masked_image > threshold_methods["Phansalkar"]) * 255
-    thresholded_images["Bernsen"] = (masked_image > threshold_methods["Bernsen"]) * 255
+    # thresholded_images["Sauvola"] = (masked_image > threshold_methods["Sauvola"]) * 255
+    # thresholded_images["Niblack"] = (masked_image > threshold_methods["Niblack"]) * 255
+    # thresholded_images["Phansalkar"] = (masked_image > threshold_methods["Phansalkar"]) * 255
+    # thresholded_images["Bernsen"] = (masked_image > threshold_methods["Bernsen"]) * 255
 
     # 🔹 Step 3: Smoothly Blend the Thresholded Images Back
     # def blend_threshold(original, thresholded, mask_blurred):
