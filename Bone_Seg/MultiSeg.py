@@ -37,7 +37,7 @@ for i in range(len(path_slice)):
     # 🔹 Step 2: Apply Multiple Thresholding Techniques
     threshold_methods = {
         "Otsu": filters.threshold_otsu(nonzero_masked_pixels),
-        "Sauvola": filters.threshold_sauvola(masked_image, window_size=25),
+        "Sauvola": filters.threshold_sauvola(masked_image, window_size=15, k=0.3, r=255),
         "Mean": filters.threshold_mean(nonzero_masked_pixels),
         "Yen": filters.threshold_yen(nonzero_masked_pixels),
         "Li": filters.threshold_li(nonzero_masked_pixels),
@@ -82,10 +82,12 @@ for i in range(len(path_slice)):
     # axes[2].set_title("Smoothed Mask")
 
     # Add thresholded images to grid
-    for i, (name, img) in enumerate(thresholded_images.items()):
-        axes[i + 2].imshow(img, cmap='gray')
-        axes[i + 2].set_title(name)
+    for j, (name, img) in enumerate(thresholded_images.items()):
+        axes[j + 2].imshow(img, cmap='gray')
+        axes[j + 2].set_title(name)
 
     plt.tight_layout()
-    plt.show()
-
+    # plt.show()
+    # plt.colorbar()
+    plt.savefig('Results/Multi_' + str(i) + '.png')
+    plt.clf()
